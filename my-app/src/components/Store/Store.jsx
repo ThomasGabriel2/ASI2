@@ -1,4 +1,3 @@
-import React from 'react';
 import './Store.css';
 
 const cards = [
@@ -35,7 +34,7 @@ const cards = [
   // Ajoutez d'autres cartes selon vos besoins
 ];
 
-const Store = () => {
+export const Store = () => {
   return (
     <div className="store">
       {cards.map(card => (
@@ -49,5 +48,3 @@ const Store = () => {
     </div>
   );
 };
-
-export default Store;
