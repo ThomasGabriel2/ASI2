@@ -1,0 +1,35 @@
+.store {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .card-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .card-name {
+    margin-top: 8px;
+    font-size: 1.2em;
+  }
+  
+  .card-description {
+    margin-top: 8px;
+  }
+  
+  .card-price {
+    margin-top: 8px;
+    color: #007bff;
+    font-weight: bold;
+  }  
