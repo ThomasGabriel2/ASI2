@@ -1,7 +1,11 @@
 import {Store} from "../components/Store/Store.jsx";
+import {Container} from "semantic-ui-react";
 
 export const StorePage = () => {
     return (
-        <Store></Store>
+        <Container>
+            <Store></Store>
+        </Container>
+
     )
 }

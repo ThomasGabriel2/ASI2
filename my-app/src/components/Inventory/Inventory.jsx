@@ -1,4 +1,5 @@
 import './Inventory.css';
+import {Card} from "../Card/Card.jsx";
 
 const cards = [
     {
@@ -35,17 +36,12 @@ const cards = [
 ];
 
 export const Inventory = () => {
+    let display_card = cards.map(
+        (card) => <Card card={card} key={card.id}></Card>
+    )
     return (
         <div className="store">
-            {cards.map(card => (
-                <div key={card.id} className="card">
-                    <img src={card.smallImgUrl} alt={card.name} className="card-image" />
-                    <h3 className="card-name">{card.name}</h3>
-                    <p className="card-description">{card.description}</p>
-                    <p className="card-price">${card.price}</p>
-                    <button>Vendre</button>
-                </div>
-            ))}
+            {display_card}
         </div>
     );
 };
