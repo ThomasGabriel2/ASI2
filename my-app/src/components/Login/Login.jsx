@@ -22,7 +22,7 @@ export const Login = () =>{
     return (
         <Form>
             <Header as='h4' dividing>
-                User Registration
+                User Login
             </Header>
             <Form.Field>
                 <Form.Input label="Login" placeholder="Login" onChange={processInput} name="login" value={currentUser.login}/>

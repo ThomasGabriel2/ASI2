@@ -43,6 +43,7 @@ export const Store = () => {
           <h3 className="card-name">{card.name}</h3>
           <p className="card-description">{card.description}</p>
           <p className="card-price">${card.price}</p>
+          <button>Acheter</button>
         </div>
       ))}
     </div>
