@@ -1,0 +1,49 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    <!-- Liens vers les scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<p>Votre ID unique est : <span id="uniqueId"></span></p> <!-- Ajout d'un paragraphe pour afficher l'ID -->
+<ul id="messages"></ul>
+<!-- Formulaire HTML avec des champs de saisie pour le nombre et le message -->
+<form id="numberAndMessageForm">
+    <input type="number" id="userNumber" name="userNumber" placeholder="Entrez un nombre" />
+    <input type="text" id="userMessage" name="userMessage" placeholder="Entrez un message" />
+    <button type="submit" id="send">Envoyer</button>
+</form>
+
+<script>
+    const emetId = Math.floor(Math.random() * 1000000);
+    document.getElementById('uniqueId').innerText = emetId; // Mettre à jour l'élément avec l'ID généré
+
+    const socket = io({
+        query: {
+            id: emetId
+        }
+    });
+
+    // Écoute de la soumission du formulaire
+    document.getElementById('numberAndMessageForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche le rechargement de la page
+
+        const userNumber = document.getElementById('userNumber').value; // Récupération du nombre saisi
+        const userMessage = document.getElementById('userMessage').value; // Récupération du message saisi
+
+        // Envoi du nombre et du message via Socket.io avec l'ID unique
+        socket.emit('send message', { emet: emetId, mess: userMessage, dest: userNumber });
+    });
+
+    // Gérez la réception de messages
+    socket.on('receive message', (msg) => {
+        const messageItem = document.createElement('li'); // Créez un élément li
+        messageItem.appendChild(document.createTextNode(msg.mess)); // Ajoutez le texte du message à l'élément li
+        document.getElementById('messages').appendChild(messageItem); // Ajoutez l'élément li à la liste des messages
+    });
+</script>
+</body>
+</html>
