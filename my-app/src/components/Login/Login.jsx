@@ -1,12 +1,26 @@
 import { useState } from 'react';
 import { Form, Header,Button } from 'semantic-ui-react'
 import axios from "axios";
+import { useDispatch} from "react-redux";
+import {update_auth_user} from "../../slices/userSlice.jsx";
+
 
 export const Login = () =>{
     const [currentUser,setCurrentUser]= useState({
         login:"",
         pwd:"",
     });
+
+    const dispatch = useDispatch();
+
+    async function fetchUser(id){
+        try {
+            const response = await axios.get(`http://tp.cpe.fr:8083/user/${id}`)
+            return response.data
+        } catch (error) {
+            console.error("Utilisateur introuvable")
+        }
+    }
 
     async function submitOrder(data) {
         try {
@@ -15,6 +29,9 @@ export const Login = () =>{
                 password: currentUser.pwd,
             });
             console.log("Autghentification réussie ID :", response.data)
+            const user = await fetchUser(response.data)
+            dispatch(update_auth_user(user))
+            console.log(user)
         } catch (error) {
             console.error("Authentifcation échouée");
         }

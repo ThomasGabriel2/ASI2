@@ -1,47 +1,56 @@
 import './Inventory.css';
 import {Card} from "../Card/Card.jsx";
-
-const cards = [
-    {
-        "name": "Carte 1",
-        "description": "Description de la carte 1",
-        "family": "Famille 1",
-        "affinity": "Affinité 1",
-        "imgUrl": "url_image_1.jpg",
-        "smallImgUrl": "url_image_petite_1.jpg",
-        "id": 1,
-        "energy": 10,
-        "hp": 20,
-        "defence": 5,
-        "attack": 15,
-        "price": 10,
-        "userId": 101
-    },
-    {
-        "name": "Carte 2",
-        "description": "Description de la carte 2",
-        "family": "Famille 2",
-        "affinity": "Affinité 2",
-        "imgUrl": "url_image_2.jpg",
-        "smallImgUrl": "url_image_petite_2.jpg",
-        "id": 2,
-        "energy": 15,
-        "hp": 25,
-        "defence": 8,
-        "attack": 20,
-        "price": 15,
-        "userId": 102
-    },
-    // Ajoutez d'autres cartes selon vos besoins
-];
+import {useSelector} from "react-redux";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 export const Inventory = () => {
+
+
+    const [cards, setCards] = useState([]);
+    let user = useSelector(state => state.userReducer.authUser);
+
+    const fetchCard = async (cardId) => {
+        try {
+            const response = await axios.get(`http://tp.cpe.fr:8083/card/${cardId}`);
+            console.log(response.data)
+            return response.data;
+
+        } catch (error) {
+            console.error('Une erreur s\'est produite lors de la récupération des données:', error);
+        }
+    };
+
+    const fetchCards = async () => {
+        if (user !== null) {
+            setCards( await Promise.all(user.cardList.map(cardId => fetchCard(cardId))));
+        }
+    }
+
+    useEffect(() => {
+        setCards([])
+        fetchCards()
+
+    }, []);
     let display_card = cards.map(
-        (card) => <Card card={card} key={card.id}></Card>
+        (card) => <div className="ui segment">
+            <Card card={card} key={card.id}></Card>
+            <button className='ui button'>Vendre</button>
+        </div>
     )
+
+
     return (
         <div className="store">
-            {display_card}
+            {user ? (
+                display_card
+            ) : (
+                <div>
+                    Vous devez vous connecter pour voir votre inventaire
+                </div>
+
+                )
+            }
         </div>
     );
 };

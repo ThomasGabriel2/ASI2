@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route, NavLink} from "react-router-dom";
 import {LoginPage} from './pages/LoginPage.jsx'
-import {StorePage} from "./pages/StorePage.jsx";
+import {ShopPage} from "./pages/ShopPage.jsx";
 import {HomePage} from "./pages/HomePage.jsx";
 import {InventoryPage} from "./pages/InventoryPage.jsx";
 import "semantic-ui-css/semantic.min.css"
@@ -20,7 +20,7 @@ function App() {
               <div>
                   <Routes>
                       <Route path='/login' element={<LoginPage/>} />
-                      <Route path='/store' element={<StorePage/>} />
+                      <Route path='/store' element={<ShopPage/>} />
                       <Route path='/' element={<HomePage/>} />
                       <Route path='/inventory' element={<InventoryPage/>}/>
                       <Route path='/signup' element={<SignupPage></SignupPage>}/>

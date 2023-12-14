@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from "react";
-import './Store.css';
+import './Shop.css';
 import {Card} from "../Card/Card.jsx";
 import axios from "axios";
 
-export const Store = () => {
+export const Shop = () => {
 
   const [cards, setCards] = useState([]);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://tp.cpe.fr:8083/cards');
+      const response = await axios.get('http://tp.cpe.fr:8083/cards_to_sell');
       setCards(response.data);
     } catch (error) {
       console.error('Une erreur s\'est produite lors de la récupération des données:', error);
