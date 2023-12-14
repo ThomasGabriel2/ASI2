@@ -5,9 +5,12 @@ import {HomePage} from "./pages/HomePage.jsx";
 import {InventoryPage} from "./pages/InventoryPage.jsx";
 import "semantic-ui-css/semantic.min.css"
 import {Navbar} from "./components/Navbar/Navbar.jsx";
+import {useState} from "react";
+import {SignupPage} from "./pages/SIgnupPage.jsx";
 
 
 function App() {
+    const [authUser,setAuthUser]= useState(null);
 
   return (
       <>
@@ -20,6 +23,7 @@ function App() {
                       <Route path='/store' element={<StorePage/>} />
                       <Route path='/' element={<HomePage/>} />
                       <Route path='/inventory' element={<InventoryPage/>}/>
+                      <Route path='/signup' element={<SignupPage></SignupPage>}/>
                   </Routes>
               </div>
           </BrowserRouter>
