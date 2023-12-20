@@ -25,6 +25,7 @@ class Controller {
             }
         });
         socket.on('refresh users',()=>{
+            console.log("oui")
             const users = userService.getUsers();
             console.log(users)
             io.emit('reception users', users);

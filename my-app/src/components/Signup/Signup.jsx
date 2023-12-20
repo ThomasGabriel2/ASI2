@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Form, Header,Button } from 'semantic-ui-react'
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export const Signup = () =>{
     const [currentUser,setCurrentUser]= useState({
@@ -10,6 +11,7 @@ export const Signup = () =>{
         surname:"",
         email:"",
     });
+    const navigate = useNavigate();
 
     async function submitOrder() {
         try {
@@ -21,6 +23,7 @@ export const Signup = () =>{
                 email: currentUser.email
             });
             console.log("Utilisateur ajouté:", response.data)
+            navigate("/login")
         } catch (error) {
             console.error("L'utilisateur n'a pas pu être créé");
         }

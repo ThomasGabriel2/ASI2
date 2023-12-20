@@ -3,6 +3,7 @@ import { Form, Header,Button } from 'semantic-ui-react'
 import axios from "axios";
 import { useDispatch} from "react-redux";
 import {update_auth_user} from "../../slices/userSlice.jsx";
+import {useNavigate} from "react-router-dom";
 
 
 export const Login = () =>{
@@ -12,6 +13,7 @@ export const Login = () =>{
     });
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     async function fetchUser(id){
         try {
@@ -32,6 +34,7 @@ export const Login = () =>{
             const user = await fetchUser(response.data)
             dispatch(update_auth_user(user))
             console.log(user)
+            navigate("/")
         } catch (error) {
             console.error("Authentifcation échouée");
         }

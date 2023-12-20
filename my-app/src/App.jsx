@@ -5,8 +5,11 @@ import {HomePage} from "./pages/HomePage.jsx";
 import {InventoryPage} from "./pages/InventoryPage.jsx";
 import "semantic-ui-css/semantic.min.css"
 import {Navbar} from "./components/Navbar/Navbar.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {SignupPage} from "./pages/SIgnupPage.jsx";
+
+import {PlayPage} from "./pages/PlayPage.jsx";
+
 
 
 function App() {
@@ -24,9 +27,13 @@ function App() {
                       <Route path='/' element={<HomePage/>} />
                       <Route path='/inventory' element={<InventoryPage/>}/>
                       <Route path='/signup' element={<SignupPage></SignupPage>}/>
+                      <Route path='/play' element={<PlayPage/>}/>
                   </Routes>
               </div>
           </BrowserRouter>
+          <div>
+
+          </div>
       </>
 
   )

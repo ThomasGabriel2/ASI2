@@ -8,8 +8,7 @@ class UserService {
     }
     // Fonction pour ajouter un utilisateur
     addUser(socket, idUser) {
-        const index = Math.floor(Math.random() * (this.usersInstance).length);
-        this.users.set(idUser, [socket,this.usersInstance[index]]);
+        this.users.set(idUser, socket);
     }
     // Fonction pour supprimer un utilisateur
     removeUser(id) {
@@ -18,17 +17,17 @@ class UserService {
     }
     // Fonction pour obtenir la socket d'un utilisateur par son ID
     getSocket(id) {
-        const userArray = this.users.get(id);
-        if (userArray) {
-            const [socket] = userArray;
+        const socket = this.users.get(id);
             return socket;
-        }
-        return null; // Ou une autre valeur par défaut si aucun utilisateur n'est trouvé pour cet ID
+
     }
     getUsers() {
             const allUsers = [];
-            for (const [, user] of this.users.values()) {
-                allUsers.push(user.lastName);
+            for (const user of this.users.values()) {
+                for (const u of this.usersInstance){
+                    if (u.id == )
+                }
+                allUsers.push(user);
             }
             return allUsers;
         }
@@ -37,6 +36,7 @@ class UserService {
             const { id, lastName, surName } = user; // Filtrer les attributs souhaités
             this.usersInstance.push(new User({ id, lastName, surName })); // Créer une nouvelle instance User avec les attributs filtrés
         });
+        console.log(this.usersInstance)
     }
 }
 

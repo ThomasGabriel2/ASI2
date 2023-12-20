@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e7973a98-7dce-4096-ba51-0312d3b8ae2a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../my-app/src/components/Chat/Chat.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../my-app/src/pages/PlayPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/CardMngMonolithicApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/CardMngMonolithicApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/JmsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/JmsConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardModelRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardModelRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardModelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardModelService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardRefRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardRefRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardReferenceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardReferenceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/Controller/CardRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/model/CardBasics.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/model/CardBasics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/model/CardDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/model/CardDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/model/CardModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/model/CardModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/model/CardReference.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/card/model/CardReference.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/common/redirect/RedirectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/common/redirect/RedirectController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/common/tools/DTOMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/common/tools/DTOMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/controller/StoreRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/controller/StoreRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/controller/StoreRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/controller/StoreRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/controller/StoreService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/controller/StoreService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/model/StoreAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/model/StoreAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/model/StoreOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/model/StoreOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/model/StoreTransaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/store/model/StoreTransaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/BusEmitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/BusEmitter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/BusListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/BusListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/UserRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/UserRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/controller/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/AuthDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/AuthDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/Flag.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/Flag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/UserDTOFlag.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/UserDTOFlag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/UserModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../asi2-backendmarket-monolithic-student-master/target/classes/com/cpe/springboot/user/model/UserModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../my-app/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../my-app/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/components/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../my-app/src/components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../my-app/src/components/Signup/Signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/components/Signup/Signup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/UserService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2ZnYtHgJKjo4VEHCGhMUflVTegz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/thomas/Documents/ASI2/projet/ASI2/asi2-backendmarket-monolithic-student-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="tp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="tp" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e7973a98-7dce-4096-ba51-0312d3b8ae2a" name="Changes" comment="" />
+      <created>1703059523298</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703059523298</updated>
+      <workItem from="1703059524358" duration="9000" />
+      <workItem from="1703059548732" duration="20000" />
+      <workItem from="1703059708374" duration="9000" />
+      <workItem from="1703059735187" duration="7000" />
+      <workItem from="1703059768260" duration="4854000" />
+      <workItem from="1703068788484" duration="1471000" />
+      <workItem from="1703070700647" duration="650000" />
+      <workItem from="1703071744986" duration="17000" />
+      <workItem from="1703071798469" duration="1401000" />
+      <workItem from="1703073818386" duration="2718000" />
+      <workItem from="1703077538115" duration="326000" />
+      <workItem from="1703079100316" duration="2250000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
