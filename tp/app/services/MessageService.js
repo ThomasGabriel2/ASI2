@@ -1,12 +1,12 @@
-const userManager = require('./UserManager')
+const userService = require('./UserService')
 class MessageService {
     constructor() {
-        console.log(`new UserService`);
+        console.log(`new MessageService`);
     }
     getDest(id){
         let ret = null;
         if (id){
-            ret = userManager.getSocket(id);
+            ret = userService.getSocket(id);
         }
         return ret;
     };
