@@ -9,7 +9,7 @@ export const Shop = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://tp.cpe.fr:8083/cards_to_sell');
+      const response = await axios.get('http://localhost:8083/cards_to_sell');
       setCards(response.data);
     } catch (error) {
       console.error('Une erreur s\'est produite lors de la récupération des données:', error);

@@ -13,7 +13,7 @@ export const Signup = () =>{
 
     async function submitOrder() {
         try {
-            const response = await axios.post('http://tp.cpe.fr:8083/user', {
+            const response = await axios.post('http://localhost:8083/user', {
                 login: currentUser.login,
                 pwd: currentUser.pwd,
                 surName: currentUser.surname,
