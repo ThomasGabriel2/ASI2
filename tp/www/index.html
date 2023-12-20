@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +12,11 @@
     <h2>Users connected:</h2>
     <ul id="users"></ul>
 </div>
-<ul id="messages"></ul>
-<form id="numberAndMessageForm">
-    <input type="number" id="userNumber" name="userNumber" placeholder="Entrez un nombre" />
-    <input type="text" id="userMessage" name="userMessage" placeholder="Entrez un message" />
-    <button type="submit" id="send">Envoyer</button>
-</form>
+<div>
+    <h2>Chat :</h2>
+    <ul id="messages"></ul>
+</div>
+
 <form id="refreshUsers">
     <button type="submit" id="refresh">Refresh</button>
 </form>
@@ -29,14 +27,6 @@
         query: {
             id: emetId
         }
-    });
-
-    document.getElementById('numberAndMessageForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const userNumber = document.getElementById('userNumber').value;
-        const userMessage = document.getElementById('userMessage').value;
-
-        socket.emit('send message', { emet: emetId, mess: userMessage, dest: userNumber });
     });
 
     document.getElementById('refreshUsers').addEventListener('submit', function(event) {
@@ -50,13 +40,95 @@
         document.getElementById('messages').appendChild(messageItem);
     });
 
+    socket.on('reponse', ans => {
+        if (ans == ture){
+
+        }
+        else{
+            const cont = document.createElement('div');
+            const txt = document.createElement('p');
+            txt.textContent = `Il veut pas jouer`;
+            cont.appendChild(txt);
+        }
+    });
+
+    socket.on('receive invitation', (msg) => {
+        console.log('oui')
+        const messageItem = document.createElement('li');
+        const inviteMessage = `${msg.emet} demande si tu veux jouer ?`;
+        messageItem.appendChild(document.createTextNode(inviteMessage));
+        document.getElementById('messages').appendChild(messageItem);
+        const yesButton = document.createElement('button');
+        yesButton.textContent = 'Oui';
+        yesButton.addEventListener('click', () => {
+            socket.emit('invitation response', {answer: true, dest: msg.emet});
+        });
+        messageItem.appendChild(yesButton)
+        const noButton = document.createElement('button');
+        noButton.textContent = 'Non';
+        noButton.addEventListener('click', () => {
+            socket.emit('invitation response', {answer: false, dest: msg.emet});
+        });
+        messageItem.appendChild(noButton)
+    });
+
     socket.on('reception users', (users) => {
         const usersList = document.getElementById('users');
-        usersList.innerHTML = ''; // Vide la liste des utilisateurs à chaque réception
+        usersList.innerHTML = '';
 
         users.forEach((user) => {
             const listItem = document.createElement('li');
-            listItem.textContent = user;
+            const button = document.createElement('button');
+
+            button.textContent = user.lastName;
+            button.addEventListener('click', () => {
+                const userContainer = document.createElement('div');
+                userContainer.classList.add('user-container');
+
+                const userName = document.createElement('p');
+                userName.textContent = user.lastName;
+
+                const userID = document.createElement('p');
+                userID.textContent = `ID : ${user.id}`;
+
+                const idInput = document.createElement('input');
+                idInput.setAttribute('type', 'number');
+                idInput.setAttribute('placeholder', 'Votre ID');
+
+                const messageInput = document.createElement('input');
+                messageInput.setAttribute('type', 'text');
+                messageInput.setAttribute('placeholder', 'Votre message');
+
+                const emptyButton = document.createElement('button');
+                emptyButton.textContent = 'Inviter';
+                emptyButton.addEventListener('click', () => {
+                    const text = document.createElement('p');
+                    text.textContent = `En attente de réponse`;
+                    userContainer.appendChild(text);
+                    const userId = idInput.value;
+                    socket.emit('send message', { emet: emetId, mess: null, dest: userId });
+                });
+
+                const sendButton = document.createElement('button');
+                sendButton.textContent = 'Envoyer';
+                sendButton.addEventListener('click', () => {
+                    event.preventDefault();
+                    const userMessage = messageInput.value;
+                    const userId = idInput.value;
+                    socket.emit('send message', { emet: emetId, mess: userMessage, dest: user.id });
+                });
+
+                userContainer.appendChild(userName);
+                userContainer.appendChild(userID);
+                userContainer.appendChild(idInput);
+                userContainer.appendChild(emptyButton);
+                userContainer.appendChild(messageInput);
+                userContainer.appendChild(sendButton);
+
+                document.body.appendChild(userContainer);
+            });
+
+            listItem.appendChild(button);
             usersList.appendChild(listItem);
         });
     });
