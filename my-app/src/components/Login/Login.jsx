@@ -15,7 +15,7 @@ export const Login = () =>{
 
     async function fetchUser(id){
         try {
-            const response = await axios.get(`http://tp.cpe.fr:8083/user/${id}`)
+            const response = await axios.get(`http://localhost:8083/user/${id}`)
             return response.data
         } catch (error) {
             console.error("Utilisateur introuvable")

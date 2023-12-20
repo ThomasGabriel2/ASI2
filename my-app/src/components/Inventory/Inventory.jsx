@@ -12,7 +12,7 @@ export const Inventory = () => {
 
     const fetchCard = async (cardId) => {
         try {
-            const response = await axios.get(`http://tp.cpe.fr:8083/card/${cardId}`);
+            const response = await axios.get(`http://localhost:8083/card/${cardId}`);
             console.log(response.data)
             return response.data;
 

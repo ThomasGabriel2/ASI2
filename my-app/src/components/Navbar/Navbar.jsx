@@ -24,7 +24,7 @@ export const Navbar = () => {
             </Menu.Item>
             <Menu.Menu position="right">
                 {user ? (
-                    <Dropdown item text={`Bienvenue, ${user.surname}`}>
+                    <Dropdown item text={`Bienvenue, ${user.surName}`}>
                         <Dropdown.Menu>
                             <Dropdown.Item>
                                 <NavLink to="/profile">Profil</NavLink>
