@@ -24,7 +24,7 @@ export const Login = () =>{
 
     async function submitOrder(data) {
         try {
-            const response = await axios.post('http://tp.cpe.fr:8083/auth', {
+            const response = await axios.post('http://localhost:8083/auth', {
                 username: currentUser.login,
                 password: currentUser.pwd,
             });
