@@ -16,8 +16,10 @@ class UserService {
         console.log('user deleted');
     }
     // Fonction pour obtenir la socket d'un utilisateur par son ID
+
     getSocket(id) {
-        const userArray = this.users.get(id);
+        let ids = id.toString();
+        const userArray = this.users.get(ids);
         if (userArray) {
             return userArray;
         }
@@ -36,11 +38,30 @@ class UserService {
         }
     setUsers(users) {
         users.forEach(user => {
-            const { id, lastName, surName } = user; // Filtrer les attributs souhaités
-            this.usersInstance.push(new User({ id, lastName, surName })); // Créer une nouvelle instance User avec les attributs filtrés
-            console.log(this.usersInstance)
+            const { id, pwd, lastName, surName } = user; // Filtrer les attributs souhaités
+            this.usersInstance.push(new User({ id, lastName, surName, pwd })); // Créer une nouvelle instance User avec les attributs filtrés
+
         });
+        console.log(this.usersInstance)
     }
+
+    login(username, password){
+        for (let user of this.usersInstance) {
+            if (user.lastName == username && user.pwd == password) {
+                return user
+            }
+        }
+            return null
+
+        }
+
+    changementId(socket,id){
+        let ids = socket.toString();
+        if (this.users.has(ids)) {
+            let valeur =this.users.get(ids); // Obtenez la valeur associée à la clé 'cle1'
+            this.users.delete(ids); // Supprimez la paire clé-valeur avec l'ancienne clé 'cle1'
+            this.users.set(id.toString(), valeur); // Ajoutez une nouvelle paire clé-valeur avec la nouvelle clé 'cle3'
+        }}
 }
 
 module.exports = new UserService();
