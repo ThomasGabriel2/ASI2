@@ -11,3 +11,7 @@ Eléments réalisés :
 Lien GIT : https://github.com/ThomasGabriel2/ASI2
 
 Lien shcéma d'architecture : https://excalidraw.com/#room=56b64bcf9fd3e4860c7f,9plkOl3K9wOPewGXilH5qQ
+
+
+
+commandes docker : - activemq : sudo docker run -it -p 61616:61616 -p 61613:61613 -p 8161:8161 -e ACTIVEMQ_DISALLOW_WEBCONSOLE=false -e ACTIVEMQ_USERNAME=myuser -e ACTIVEMQ_PASSWORD=mypwd -e ACTIVEMQ_WEBADMIN_USERNAME=myuserweb -e ACTIVEMQ_WEBADMIN_PASSWORD=mypwd symptoma/activemq:latest
