@@ -19,8 +19,7 @@ class UserService {
     getSocket(id) {
         const userArray = this.users.get(id);
         if (userArray) {
-            const [socket] = userArray;
-            return socket;
+            return userArray;
         }
         return null; // Ou une autre valeur par défaut si aucun utilisateur n'est trouvé pour cet ID
     }
