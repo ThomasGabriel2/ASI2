@@ -52,11 +52,12 @@ public class UserService {
 		UserDTO userDTO = user.getUserDTO();
 		UserModel u = fromUDtoToUModel(userDTO);
 		// needed to avoid detached entity passed to persist error
-		userRepository.save(u);
 		List<CardModel> cardList = cardModelService.getRandCard(5);
 		for (CardModel card : cardList) {
 			u.addCard(card);
 		}
+		userRepository.save(u);
+
 	}
 
 	public UserDTOFlag updateUser(UserDTO user) {
