@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import {useSelector} from "react-redux";
 import {io} from "socket.io-client";
-import {Button} from "semantic-ui-react";
+import {Button, Menu} from "semantic-ui-react";
 
 
 export const Chat = () => {
@@ -36,22 +36,22 @@ export const Chat = () => {
         socket.emit('refresh users');
     }
 
-
+    refreshUsers()
     let display_messages = messages.map((message) => <div>{message}</div>)
-    let display_users = usersConnected.map((user) => <li>{user}</li>)
+    let display_users = usersConnected.map((user) => <Menu.Item key={user.id}>user.surName</Menu.Item>)
 
     return (
     <div>
         <p>Votre ID unique est : <span id="uniqueId">{user.id}</span></p>
-        <div>
-            <div id="connectedUsers">
-                <h2>Users connected:</h2>
-                <ul id="users">
-                    {display_users}
-                </ul>
+        <Menu vertical fixed="right">
+            <Menu.Item header>Users</Menu.Item>
+            {display_users}
+            <Menu.Item position={bottom}>
                 <Button type='submit' onClick={refreshUsers}>Submit</Button>
-            </div>
-        </div>
+            </Menu.Item>
+
+        </Menu>
+
         {display_messages}
     </div>
     )

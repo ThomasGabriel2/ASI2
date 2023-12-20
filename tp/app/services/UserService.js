@@ -34,7 +34,7 @@ class UserService {
                 }
             }
             return allUsers;
-        }
+        }}
     setUsers(users) {
         users.forEach(user => {
             const { id, lastName, surName } = user; // Filtrer les attributs souhaités
