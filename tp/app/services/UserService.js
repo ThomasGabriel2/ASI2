@@ -17,17 +17,21 @@ class UserService {
     }
     // Fonction pour obtenir la socket d'un utilisateur par son ID
     getSocket(id) {
-        const socket = this.users.get(id);
+        const userArray = this.users.get(id);
+        if (userArray) {
+            const [socket] = userArray;
             return socket;
-
+        }
+        return null; // Ou une autre valeur par défaut si aucun utilisateur n'est trouvé pour cet ID
     }
     getUsers() {
             const allUsers = [];
-            for (const user of this.users.values()) {
-                for (const u of this.usersInstance){
-                    if (u.id == )
+            for (const id of this.users.keys()){
+                for (const user of this.usersInstance){
+                    if (id == user.id){
+                        allUsers.push(user);
+                    }
                 }
-                allUsers.push(user);
             }
             return allUsers;
         }
@@ -35,8 +39,8 @@ class UserService {
         users.forEach(user => {
             const { id, lastName, surName } = user; // Filtrer les attributs souhaités
             this.usersInstance.push(new User({ id, lastName, surName })); // Créer une nouvelle instance User avec les attributs filtrés
+            console.log(this.usersInstance)
         });
-        console.log(this.usersInstance)
     }
 }
 
