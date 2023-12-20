@@ -1,7 +1,7 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {isValidElement, useEffect, useRef, useState} from "react";
 import {useSelector} from "react-redux";
 import {io} from "socket.io-client";
-import {Button, Menu} from "semantic-ui-react";
+import {Button, Form, Header, Input, Menu} from "semantic-ui-react";
 
 
 export const Chat = () => {
@@ -10,19 +10,32 @@ export const Chat = () => {
     const [usersConnected, setUsersConnected] = useState([])
     const [messages, setMessages] = useState([])
     const [socket, setSocket] = useState(undefined)
-    const [chatUser, setChatUser] = useState(undefined)
+    const [chatUser, setChatUser] = useState(null)
+    const [currentMsg, setCurrentMsg] = useState(null)
+
     const receiveMessage = (msg) => {
-        setMessages( previous => [...previous,  msg.mess])
+        console.log("oui")
+        setMessages( previous => [...previous,  msg])
     }
 
     const receiveUsers = (users) => {
+        console.log("Mise à jour des utilisateurs")
         setUsersConnected(users)
+        console.log("Done")
 
     }
 
-    const changeChatUser= () => {
+    const changeChatUser = (value) => {
+        console.log(value)
+        let user1 = usersConnected[0];
+        for (const user of usersConnected) {
+            if (user.id == value) {
+                console.log("oui")
+                user1 = user
+            }
+        }
         setMessages([])
-        setChatUser(user)
+        setChatUser(user1)
     }
 
     useEffect(()=>{
@@ -39,11 +52,22 @@ export const Chat = () => {
 
 
     const refreshUsers = () => {
-        console.log(socket)
+        console.log("Demande de mise à jour des utilisateurs")
         socket.emit('refresh users');
     }
-    let display_messages = messages.map((message) => <div>{message}</div>)
-    let display_users = usersConnected.map((user) => <Menu.Item onClick={changeChatUser(user)} key={user.id}>{user.surName}</Menu.Item>)
+
+    function processInput(event, { valueData }){
+        const target = event.currentTarget;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        setCurrentMsg(value);
+    }
+
+    function sendMsg() {
+        socket.emit('send message', {emet:user.id, mess :currentMsg, dest: chatUser.id})
+    }
+
+    let display_messages = messages.map((message) => <div>{message.emet} : {message.mess}</div>)
+    let display_users = usersConnected.map((user) => <Menu.Item onClick={() => changeChatUser(user.id)} key={user.id}>{user.surName}</Menu.Item>)
 
     return (
     <div>
@@ -55,6 +79,29 @@ export const Chat = () => {
                 <Button type='submit' onClick={refreshUsers}>Refresh</Button>
             </Menu.Item>
         </Menu>
+        <div>
+            { chatUser ? (
+                <div>
+                    Vous chattez avec {chatUser.surName}
+                </div>
+            ) : (
+                <div>
+                    Veuillez sélectionner un utilisateur pour chatter
+                </div>
+                )
+            }
+            <Form>
+
+            <Form.Field>
+                <Form.Input placeholder="Message" onChange={processInput} name="message" value={currentMsg}/>
+            </Form.Field>
+
+            <Button type='submit' onClick={sendMsg}>Submit</Button>
+        </Form>
+        </div>
+
+
+
         
         {display_messages}
     </div>
