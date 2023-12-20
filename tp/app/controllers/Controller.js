@@ -17,22 +17,27 @@ class Controller {
             });
             console.log(msg)
             let dest = messageService.getDest(msg.dest);
-            if (dest != null) {
+            if (data.mess==null){
+                console.log(dest)
+                msg.mess="ok"
+                dest.emit('receive invitation', msg);
+                console.log('invitation envoyé')
+            }
+            else if (dest != null) {
                 dest.emit('receive message', msg);
-                console.log('message envoyé')
+                console.log('message envoyé à un')
             } else {
                 io.emit('receive message', msg);
+                console.log('message envoyé à tous')
             }
         });
         socket.on('refresh users',()=>{
-            console.log("oui")
             const users = userService.getUsers();
-            console.log(users)
             io.emit('reception users', users);
         });
     }
 
-   async getUsersFromSpring() {
+    async getUsersFromSpring() {
         try {
             const response = await axios.get('http://localhost:8083/users');
             userService.setUsers(response.data); // Affichage de la réponse
