@@ -14,8 +14,9 @@ export const Chat = () => {
     const [currentMsg, setCurrentMsg] = useState(null)
 
     const receiveMessage = (msg) => {
-        console.log("oui")
+        console.log(msg)
         setMessages( previous => [...previous,  msg])
+
     }
 
     const receiveUsers = (users) => {
@@ -63,10 +64,11 @@ export const Chat = () => {
     }
 
     function sendMsg() {
-        socket.emit('send message', {emet:user.id, mess :currentMsg, dest: chatUser.id})
+        socket.emit('send message', {emet: [user.id, user.surName], mess :currentMsg, dest: chatUser.id})
+        setMessages(previous => [...previous, {emet: [user.id, user.surName], mess :currentMsg, dest: chatUser.id}])
     }
 
-    let display_messages = messages.map((message) => <div>{message.emet} : {message.mess}</div>)
+    let display_messages = messages.map((message) => <div>{message.emet[1]} : {message.mess}</div>)
     let display_users = usersConnected.map((user) => <Menu.Item onClick={() => changeChatUser(user.id)} key={user.id}>{user.surName}</Menu.Item>)
 
     return (

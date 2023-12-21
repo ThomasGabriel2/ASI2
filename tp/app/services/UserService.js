@@ -9,7 +9,7 @@ class UserService {
     }
     // Fonction pour ajouter un utilisateur
     addUser(socket, idUser) {
-        this.users.set(idUser, socket);
+        this.users.set(idUser.toString(), socket);
     }
     // Fonction pour supprimer un utilisateur
     removeUser(id) {

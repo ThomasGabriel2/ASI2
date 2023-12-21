@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7973a98-7dce-4096-ba51-0312d3b8ae2a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../my-app/src/components/Board/Board.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../my-app/src/components/Deck/Deck.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../my-app/src/components/PlayerBoard/PlayerBoard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../my-app/src/components/Chat/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/components/Chat/Chat.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/UserService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,24 +32,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.index.html.executor": "Run",
-    "Node.js.UserService.js.executor": "Run",
-    "Node.js.server.js.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/thomas/Documents/ASI2/projet/ASI2/tp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.UserService.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/thomas/Documents/ASI2/projet/ASI2/tp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="tp" />
@@ -80,6 +86,8 @@
       <workItem from="1703077538115" duration="326000" />
       <workItem from="1703079100316" duration="7134000" />
       <workItem from="1703094576995" duration="3202000" />
+      <workItem from="1703143949534" duration="345000" />
+      <workItem from="1703144504130" duration="2278000" />
     </task>
     <servers />
   </component>

@@ -32,6 +32,7 @@ class Controller {
         });
         socket.on('refresh users',()=>{
             const users = userService.getUsers();
+            console.log("Envoi des utilisateurs:", users)
             io.emit('reception users', users);
         });
 
