@@ -19,11 +19,14 @@ class Controller {
             let dest = messageService.getDest(msg.dest);
             if (data.mess==null){
                 msg.mess="ok"
-                dest.emit('receive invitation', msg);
+                const user2 = userService.getUser(msg.emet[0]);
+                dest.emit('receive invitation', ({msg : msg, user2 : user2}));
                 console.log('invitation envoyé')
             }
             else if (dest != null) {
-                dest.emit('receive message', msg);
+                dest.emit('receive message', msg );
+                // const ret = messageService.getDest(msg.emet[0])
+                // ret.emit('receive message', msg );
                 console.log('message envoyé à un')
             } else {
                 io.emit('receive message', msg);
@@ -48,7 +51,15 @@ class Controller {
 
         socket.on('invitation response', data =>{
             const dest = userService.getSocket(data.dest[0]);
-            dest.emit('invit rep',data.answer);
+            const user2 = data.emet;
+            dest.emit('invit rep',({ans :data.answer, user2 : user2}));
+        });
+
+        socket.on('result', (data) =>{
+            const dest1 = messageService.getDest(data.emet)
+            const dest2 = messageService.getDest(data.dest)
+            dest1.emit('display res',(data.result));
+            dest2.emit('display res',(data.result));
         });
 
     }
@@ -57,6 +68,18 @@ class Controller {
         try {
             const response = await axios.get('http://localhost:8083/users');
             userService.setUsers(response.data); // Affichage de la réponse
+            userService.updateCards();
+        } catch (error) {
+            console.error(error); // Gestion des erreurs
+        }
+
+    };
+
+    async getCardsFromSpring() {
+        try {
+            const response = await axios.get('http://localhost:8083/cards');
+            userService.setCards(response.data); // Affichage de la réponse
+
         } catch (error) {
             console.error(error); // Gestion des erreurs
         }
