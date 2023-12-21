@@ -34,19 +34,67 @@
     });
     let uId =0;
     let uName ="";
+    let User = undefined;
     document.getElementById('loginForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Empêche l'envoi du formulaire par défaut
-
         // Récupération des valeurs du formulaire
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         socket.emit('login',{emet: emetId, username: username, pwd:password});
     });
 
+    function creerPlateauDeJeu(user1, user2) {
+        console.log(user1, user2)
+        // Créer les éléments HTML pour représenter le plateau de jeu
+        let plateauDeJeu = document.createElement('div');
+        plateauDeJeu.classList.add('plateau');
+
+        // Créer les éléments pour afficher vos cartes (user1)
+        let vosCartes = document.createElement('div');
+        vosCartes.classList.add('cartes-joueur');
+
+        // Afficher les cartes de l'utilisateur 1 (vous)
+        user1.cardList.forEach(card => {
+            let carte = document.createElement('div');
+
+            carte.textContent = card;
+            vosCartes.appendChild(carte);
+        });
+
+        // Créer les éléments pour afficher les cartes de l'adversaire (user2)
+        let cartesAdversaire = document.createElement('div');
+        cartesAdversaire.classList.add('cartes-adversaire');
+
+        // Afficher les cartes de l'utilisateur 2 (adversaire)
+        user2.cardList.forEach(() => {
+            let carte = document.createElement('div');
+            // Ajouter une classe pour représenter une carte face cachée
+            carte.classList.add('dos-carte');
+            carte.textContent ="carte cachée"
+            cartesAdversaire.appendChild(carte);
+        });
+
+        // Créer les éléments pour afficher les noms
+        let nomJoueur = document.createElement('div');
+        nomJoueur.textContent = user1.lastName;
+        let nomAdversaire = document.createElement('div');
+        nomAdversaire.textContent = user2.lastName;
+
+        // Assembler tous les éléments dans le plateau de jeu
+        plateauDeJeu.appendChild(cartesAdversaire);
+        plateauDeJeu.appendChild(nomAdversaire);
+        plateauDeJeu.appendChild(vosCartes);
+        plateauDeJeu.appendChild(nomJoueur);
+
+        // Ajouter le plateau de jeu à la page HTML
+        document.body.appendChild(plateauDeJeu);
+    }
+
     socket.on('reponse login', user =>{
         if (user) {
             uId = user.id;
             uName = user.lastName;
+            User = user;
             // Récupération de l'élément avec l'identifiant 'messageContainer'
             let container = document.getElementById("connectedUsers");
 // Création d'un élément de paragraphe
@@ -79,11 +127,12 @@
         document.getElementById('messages').appendChild(messageItem);
     });
 
-    socket.on('invit rep', ans => {
-        if (ans){
+    socket.on('invit rep', (data) => {
+        if (data.ans){
             const messageItem = document.createElement('li');
             messageItem.appendChild(document.createTextNode("Lancement de la partie"));
             document.getElementById('messages').appendChild(messageItem);
+            creerPlateauDeJeu(User,data.user2);
         }
         else {
             const messageItem = document.createElement('li');
@@ -92,10 +141,10 @@
         }
     });
 
-    socket.on('receive invitation', (msg) => {
+    socket.on('receive invitation', data => {
         console.log('oui')
         const messageItem = document.createElement('li');
-        const inviteMessage = `${msg.emet[1]} demande si tu veux jouer ?`;
+        const inviteMessage = `${data.msg.emet[1]} demande si tu veux jouer ?`;
         messageItem.appendChild(document.createTextNode(inviteMessage));
         document.getElementById('messages').appendChild(messageItem);
         const yesButton = document.createElement('button');
@@ -104,7 +153,9 @@
             const messageItem = document.createElement('li');
             messageItem.appendChild(document.createTextNode("Lancement de la partie"));
             document.getElementById('messages').appendChild(messageItem);
-            socket.emit('invitation response', {answer: true, dest: msg.emet});
+            creerPlateauDeJeu(User,data.user2);
+            socket.emit('invitation response', {answer: true, dest: data.msg.emet, emet : User});
+
         });
         messageItem.appendChild(yesButton)
         const noButton = document.createElement('button');
@@ -113,7 +164,7 @@
             const messageItem = document.createElement('li');
             messageItem.appendChild(document.createTextNode("Invitation refusée"));
             document.getElementById('messages').appendChild(messageItem);
-            socket.emit('invitation response', {answer: false, dest: msg.emet});
+            socket.emit('invitation response', {answer: false, dest: data.msg.emet});
         });
         messageItem.appendChild(noButton)
     });
@@ -156,6 +207,7 @@
                     event.preventDefault();
                     const userMessage = messageInput.value;
                     socket.emit('send message', { emet: [uId , uName], mess: userMessage, dest: user.id });
+                    socket.emit('send message', { emet: [uId , uName], mess: userMessage, dest: uId });
                 });
 
                 userContainer.appendChild(userName);
@@ -163,12 +215,13 @@
                 userContainer.appendChild(emptyButton);
                 userContainer.appendChild(messageInput);
                 userContainer.appendChild(sendButton);
-
                 document.body.appendChild(userContainer);
             });
 
             listItem.appendChild(button);
             usersList.appendChild(listItem);
+
+
         });
     });
 
