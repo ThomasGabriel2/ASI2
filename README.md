@@ -18,3 +18,21 @@ commandes docker :
 - activemq : sudo docker run -it -p 61616:61616 -p 61613:61613 -p 8161:8161 -e ACTIVEMQ_DISALLOW_WEBCONSOLE=false -e ACTIVEMQ_USERNAME=myuser -e ACTIVEMQ_PASSWORD=mypwd -e ACTIVEMQ_WEBADMIN_USERNAME=myuserweb -e ACTIVEMQ_WEBADMIN_PASSWORD=mypwd symptoma/activemq:latest
 
 - nginx : sudo docker run --rm --name my-custom-asi-nginx-container --network host -v /home/thomas/Documents/ASI2/projet/ASI2/nginx.conf:/etc/nginx/nginx.conf:ro nginx
+
+squelette carte : 
+{
+        "id": 12,
+        "name": "name2",
+        "description": "description2",
+        "family": "family2",
+        "affinity": "affinity2",
+        "imgUrl": "http://medias.3dvf.com/news/sitegrab/gits2045.jpg",
+        "smallImgUrl": "https://cdn.animenewsnetwork.com/thumbnails/fit600x1000/cms/feature/89858/05.jpg",
+        "energy": 100,
+        "hp": 81.19427,
+        "defence": 69.24205,
+        "attack": 3.1732023,
+        "price": 111,
+        "userId": null,
+        "storeId": null
+    }
