@@ -8,6 +8,7 @@ class MessageService {
         if (id){
             ret = userService.getSocket(id);
         }
+
         return ret;
     };
 }

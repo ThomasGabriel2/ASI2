@@ -7,7 +7,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<p>Votre ID unique est : <span id="uniqueId"></span></p>
+<form id="loginForm">
+    <h2>Connexion</h2>
+    <label for="username">Nom d'utilisateur :</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" required>
+    <input type="submit" value="Se connecter">
+</form>
+
 <div id="connectedUsers">
     <h2>Users connected:</h2>
     <ul id="users"></ul>
@@ -17,56 +25,94 @@
     <ul id="messages"></ul>
 </div>
 
-<form id="refreshUsers">
-    <button type="submit" id="refresh">Refresh</button>
-</form>
 <script>
     const emetId = Math.floor(Math.random() * 1000000);
-    document.getElementById('uniqueId').innerText = emetId;
     const socket = io({
         query: {
             id: emetId
         }
     });
+    let uId =0;
+    let uName ="";
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche l'envoi du formulaire par défaut
 
-    document.getElementById('refreshUsers').addEventListener('submit', function(event) {
-        event.preventDefault();
-        socket.emit('refresh users');
+        // Récupération des valeurs du formulaire
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        socket.emit('login',{emet: emetId, username: username, pwd:password});
     });
+
+    socket.on('reponse login', user =>{
+        if (user) {
+            uId = user.id;
+            uName = user.lastName;
+            // Récupération de l'élément avec l'identifiant 'messageContainer'
+            let container = document.getElementById("connectedUsers");
+// Création d'un élément de paragraphe
+            let nouveauMessage = document.createElement("p");
+// Contenu du nouveau message
+            let texteMessage = "Connecté avec l'id:" + user.id;
+// Assignation du texte au nouveau message
+            nouveauMessage.textContent = texteMessage;
+// Ajout du nouveau message à l'élément 'messageContainer'
+            container.appendChild(nouveauMessage);
+            socket.emit('changement id',({emet :emetId, id : user.id}))
+            socket.emit('refresh users')
+        }
+        else{
+            let container = document.getElementById("connectedUsers");
+// Création d'un élément de paragraphe
+            let nouveauMessage = document.createElement("p");
+// Contenu du nouveau message
+            let texteMessage = "Mauvais combo";
+// Assignation du texte au nouveau message
+            nouveauMessage.textContent = texteMessage;
+// Ajout du nouveau message à l'élément 'messageContainer'
+            container.appendChild(nouveauMessage);
+        }
+    })
 
     socket.on('receive message', (msg) => {
         const messageItem = document.createElement('li');
-        messageItem.appendChild(document.createTextNode(msg.mess));
+        messageItem.appendChild(document.createTextNode(msg.emet[1] + ":" + msg.mess));
         document.getElementById('messages').appendChild(messageItem);
     });
 
-    socket.on('reponse', ans => {
-        if (ans == ture){
-
+    socket.on('invit rep', ans => {
+        if (ans){
+            const messageItem = document.createElement('li');
+            messageItem.appendChild(document.createTextNode("Lancement de la partie"));
+            document.getElementById('messages').appendChild(messageItem);
         }
-        else{
-            const cont = document.createElement('div');
-            const txt = document.createElement('p');
-            txt.textContent = `Il veut pas jouer`;
-            cont.appendChild(txt);
+        else {
+            const messageItem = document.createElement('li');
+            messageItem.appendChild(document.createTextNode("Invitation refusée"));
+            document.getElementById('messages').appendChild(messageItem);
         }
     });
 
     socket.on('receive invitation', (msg) => {
         console.log('oui')
         const messageItem = document.createElement('li');
-        const inviteMessage = `${msg.emet} demande si tu veux jouer ?`;
+        const inviteMessage = `${msg.emet[1]} demande si tu veux jouer ?`;
         messageItem.appendChild(document.createTextNode(inviteMessage));
         document.getElementById('messages').appendChild(messageItem);
         const yesButton = document.createElement('button');
         yesButton.textContent = 'Oui';
         yesButton.addEventListener('click', () => {
+            const messageItem = document.createElement('li');
+            messageItem.appendChild(document.createTextNode("Lancement de la partie"));
+            document.getElementById('messages').appendChild(messageItem);
             socket.emit('invitation response', {answer: true, dest: msg.emet});
         });
         messageItem.appendChild(yesButton)
         const noButton = document.createElement('button');
         noButton.textContent = 'Non';
         noButton.addEventListener('click', () => {
+            const messageItem = document.createElement('li');
+            messageItem.appendChild(document.createTextNode("Invitation refusée"));
+            document.getElementById('messages').appendChild(messageItem);
             socket.emit('invitation response', {answer: false, dest: msg.emet});
         });
         messageItem.appendChild(noButton)
@@ -91,10 +137,6 @@
                 const userID = document.createElement('p');
                 userID.textContent = `ID : ${user.id}`;
 
-                const idInput = document.createElement('input');
-                idInput.setAttribute('type', 'number');
-                idInput.setAttribute('placeholder', 'Votre ID');
-
                 const messageInput = document.createElement('input');
                 messageInput.setAttribute('type', 'text');
                 messageInput.setAttribute('placeholder', 'Votre message');
@@ -102,11 +144,10 @@
                 const emptyButton = document.createElement('button');
                 emptyButton.textContent = 'Inviter';
                 emptyButton.addEventListener('click', () => {
-                    const text = document.createElement('p');
-                    text.textContent = `En attente de réponse`;
-                    userContainer.appendChild(text);
-                    const userId = idInput.value;
-                    socket.emit('send message', { emet: emetId, mess: null, dest: userId });
+                    const messageItem = document.createElement('li');
+                    messageItem.appendChild(document.createTextNode("En attente de réponse"));
+                    document.getElementById('messages').appendChild(messageItem);
+                    socket.emit('send message', { emet: [uId , uName], mess: null, dest: user.id });
                 });
 
                 const sendButton = document.createElement('button');
@@ -114,13 +155,11 @@
                 sendButton.addEventListener('click', () => {
                     event.preventDefault();
                     const userMessage = messageInput.value;
-                    const userId = idInput.value;
-                    socket.emit('send message', { emet: emetId, mess: userMessage, dest: user.id });
+                    socket.emit('send message', { emet: [uId , uName], mess: userMessage, dest: user.id });
                 });
 
                 userContainer.appendChild(userName);
                 userContainer.appendChild(userID);
-                userContainer.appendChild(idInput);
                 userContainer.appendChild(emptyButton);
                 userContainer.appendChild(messageInput);
                 userContainer.appendChild(sendButton);

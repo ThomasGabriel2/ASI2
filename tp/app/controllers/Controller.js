@@ -18,7 +18,6 @@ class Controller {
             console.log(msg)
             let dest = messageService.getDest(msg.dest);
             if (data.mess==null){
-                console.log(dest)
                 msg.mess="ok"
                 dest.emit('receive invitation', msg);
                 console.log('invitation envoyé')
@@ -33,9 +32,25 @@ class Controller {
         });
         socket.on('refresh users',()=>{
             const users = userService.getUsers();
-            console.log("Envoi des nouveaux utilisateurs: ", users)
             io.emit('reception users', users);
         });
+
+        socket.on('login',data =>{
+            const rep = userService.login(data.username, data.pwd);
+            let dest = messageService.getDest(data.emet);
+            dest.emit('reponse login', rep);
+        });
+
+        socket.on('changement id', data =>{
+           userService.changementId(data.emet,data.id);
+        });
+
+
+        socket.on('invitation response', data =>{
+            const dest = userService.getSocket(data.dest[0]);
+            dest.emit('invit rep',data.answer);
+        });
+
     }
 
     async getUsersFromSpring() {
