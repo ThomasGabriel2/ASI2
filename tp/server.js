@@ -37,4 +37,5 @@ app.use(express.static(CONFIG.www));
 // Démarrage de l'application
 server.listen(CONFIG.port, () => console.log(`Listening http://localhost:${CONFIG.port}`));
 
+controller.getCardsFromSpring();
 controller.getUsersFromSpring();
