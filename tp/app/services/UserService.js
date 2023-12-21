@@ -1,10 +1,11 @@
 const User = require("../models/User");
-
+const Card = require("../models/Card");
 
 class UserService {
     constructor() {
         this.users = new Map(); // Utilisation d'une Map pour stocker les utilisateurs par leur ID
         this.usersInstance = [];
+        this.cards=[];
     }
     // Fonction pour ajouter un utilisateur
     addUser(socket, idUser) {
@@ -36,14 +37,30 @@ class UserService {
             }
             return allUsers;
         }
-    setUsers(users) {
-        users.forEach(user => {
-            const { id, pwd, lastName, surName } = user; // Filtrer les attributs souhaités
-            this.usersInstance.push(new User({ id, lastName, surName, pwd })); // Créer une nouvelle instance User avec les attributs filtrés
 
-        });
+    updateCards(){
+        for (let user of this.usersInstance){
+            user.cardList = this.cards.filter(card => user.cardList.includes(card.id));
+        }
         console.log(this.usersInstance)
     }
+    setUsers(users) {
+        users.forEach(user => {
+            const { id, pwd, lastName, surName , cardList } = user; // Filtrer les attributs souhaités
+            this.usersInstance.push(new User({ id, lastName, surName, pwd, cardList})); // Créer une nouvelle instance User avec les attributs filtrés
+
+        });
+    }
+    setCards(cards) {
+        cards.forEach(card => {
+            const { id, name, description, family, affinity, imgUrl, smallImgUrl, energy, defence, attack, userId, storeId} = card; // Filtrer les attributs souhaités
+            this.cards.push(new Card({ id, name, description, family, affinity, imgUrl, smallImgUrl, energy, defence, attack, userId, storeId})); // Créer une nouvelle instance User avec les attributs filtrés
+
+        });
+    }
+
+
+
 
     login(username, password){
         for (let user of this.usersInstance) {
@@ -62,6 +79,18 @@ class UserService {
             this.users.delete(ids); // Supprimez la paire clé-valeur avec l'ancienne clé 'cle1'
             this.users.set(id.toString(), valeur); // Ajoutez une nouvelle paire clé-valeur avec la nouvelle clé 'cle3'
         }}
+
+    getUser(id){
+
+            for (let user of this.usersInstance){
+                console.log(user)
+                if (user.id == id){
+                    return user;
+                }
+
+        }
+        return null;
+    }
 }
 
 module.exports = new UserService();
