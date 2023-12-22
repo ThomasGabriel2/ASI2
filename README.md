@@ -7,11 +7,26 @@ Eléments réalisés :
   - Réalisation d'une page d'acceuil, gestion de l'authentification, gestion du store (affichage des cartes à vendre avec possibilé de les acheter ou de mettre en vente ses cartes), gestion des appels au back end.
 - Back end Springboot : Maxime & Charles
   - Création de classes émettrice et réceptrice pour gérer la communication avec un ESB activeMQ dans le cas d'ajout, modification ou suppression d'utilisateurs.
+- Back end NodeJS : Maxime & Charles
+  - Réalisation du chat entre deux utilisateurs, connection des utilisateurs, possibilité d'envoyer des invitations pour jouer, lancement de la partie avec affichage.
 
 Lien GIT : https://github.com/ThomasGabriel2/ASI2
 
 Lien shcéma d'architecture : https://excalidraw.com/#room=56b64bcf9fd3e4860c7f,9plkOl3K9wOPewGXilH5qQ
 
+Explication de la vidéo :
+Nous commençons par lancer le backend springboot puis nous crééons deux utilisateurs via l'interface React. Ensuite, nous lançons le back end nodeJS et nous simulons le comportement de deux utilisateurs.
+Pendant la partie, les labels "cartes cachées" coorespondent aux cartes de l'adversaire (dont le nom est écrit juste en dessous) et les labels "[object Object]" sont nos cartes. L'algorithme de la partie désigne simplement un gagnant aléatoirement.
+
+Eléments à améliorer :
+-  Back end Springboot :
+  - Exploser le monolithe en micro services.
+  - Utilisez des ESBs pour d'autres fonctionnalités chronophage.
+- Back end NodeJS :
+  - Sécurisation des données (users, cards, ...)
+  - Gestion de la connection du même user sur plusieurs sockets.
+  - Possibilité de répondre à un message sans avoir à cliquer sur le nom de la personne.
+  - Refaire (juste faire) tout l'algorithme du jeu de la partie.
 
 
 commandes docker : 
