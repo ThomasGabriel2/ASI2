@@ -81,7 +81,6 @@ class UserService {
         }}
 
     getUser(id){
-
             for (let user of this.usersInstance){
                 console.log(user)
                 if (user.id == id){
