@@ -154,6 +154,7 @@
             messageItem.appendChild(document.createTextNode("Lancement de la partie"));
             document.getElementById('messages').appendChild(messageItem);
             creerPlateauDeJeu(User,data.user2);
+            console.log("Réopnseeeeeeeeeeeee :", {answer: true, dest: data.msg.emet, emet : User})
             socket.emit('invitation response', {answer: true, dest: data.msg.emet, emet : User});
 
         });

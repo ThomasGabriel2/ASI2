@@ -51,6 +51,7 @@ class Controller {
 
 
         socket.on('invitation response', data =>{
+            console.log(data)
             const dest = userService.getSocket(data.dest[0]);
             const user2 = data.emet;
             dest.emit('invit rep',({ans :data.answer, user2 : user2}));
@@ -62,6 +63,13 @@ class Controller {
             dest1.emit('display res',(data.result));
             dest2.emit('display res',(data.result));
         });
+        socket.on('debut partie', (id) =>{
+            const dest = messageService.getDest(id)
+            const cards = userService.getUser(id).cardList;
+            console.log(cards)
+            dest.emit('give cards', cards)
+        });
+
 
     }
 
