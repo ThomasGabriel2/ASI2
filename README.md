@@ -28,8 +28,14 @@ Eléments à améliorer :
   - Possibilité de répondre à un message sans avoir à cliquer sur le nom de la personne.
   - Refaire (juste faire) tout l'algorithme du jeu de la partie.
 
+# Comment utiliser ?
 
-
+- Lancer ActiveMQ
+- Lancer Nginx
+- Lancer le Backend en démarrant CardMngMonolithicApplication du dossier asi2-backendmarket-monolithic-student-master
+- Lancer React (npm run dev) dans le dossier my-app
+- Enregistrer ses utilisateurs
+- Lancer le Backend Node en démarrant le fichier server.js dans le dossier tp
 
 
 
