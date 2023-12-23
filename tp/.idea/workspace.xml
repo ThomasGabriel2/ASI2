@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7973a98-7dce-4096-ba51-0312d3b8ae2a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../my-app/src/components/Board/Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/components/Board/Board.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../my-app/src/components/Chat/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/components/Game/Game.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../my-app/src/components/Inventory/Inventory.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../my-app/src/components/Inventory/Inventory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/components/Inventory/Inventory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../my-app/src/pages/PlayPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/pages/PlayPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +36,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/thomas/Documents/ASI2/projet/ASI2/tp",
+    "last_opened_file_path": "/home/thomas/Documents/ASI2/projet/ASI2/my-app",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,6 +84,7 @@
       <workItem from="1703143949534" duration="345000" />
       <workItem from="1703144504130" duration="2323000" />
       <workItem from="1703268449767" duration="11506000" />
+      <workItem from="1703349118185" duration="1093000" />
     </task>
     <servers />
   </component>

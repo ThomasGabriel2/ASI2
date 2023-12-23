@@ -24,7 +24,7 @@ export const Shop = () => {
     fetchData();
   }, []);
 
-  const buy = (card_id) =>  {
+  const  buy = async (card_id) =>  {
     if (user != undefined) {
       try {
         const response = await axios.post('http://localhost:8083/buy', {user_id: user.id, card_id:card_id});
@@ -33,12 +33,15 @@ export const Shop = () => {
       }
     }
   }
+  const processInput = (id) => {
+      buy(id)
+  }
 
 
   let display_card = cards.map(
       (card) => <div className="ui segment" key={card.id}>
         <Card card={card} key={card.id}></Card>
-        <Button className='ui button' type={"button"} onClick={() => buy(card.id)} key={card.id}>Acheter</Button>
+        <Button className='ui button' type={"button"} onClick={() => processInput(card.id)} key={card.id}>Acheter</Button>
       </div>
   )
   return (
