@@ -1,10 +1,11 @@
-# ASI2 : Atelier 1 : 
+# ASI2 : Atelier 2 : 
 
 Noms : CHOURAQUI Maxime / CLEMENT Charles / GABRIEL Thomas / LUPPI Daniel
 
 Eléments réalisés : 
 - Front REACT : Thomas & Daniel
   - Réalisation d'une page d'acceuil, gestion de l'authentification, gestion du store (affichage des cartes à vendre avec possibilé de les acheter ou de mettre en vente ses cartes), gestion des appels au back end.
+  - Création d'une page de jeu avec d'un côté le chat et de l'autre le jeu. Cette page communique avec le back-end NodeJs avec une WebSocket.
 - Back end Springboot : Maxime & Charles
   - Création de classes émettrice et réceptrice pour gérer la communication avec un ESB activeMQ dans le cas d'ajout, modification ou suppression d'utilisateurs.
 - Back end NodeJS : Maxime & Charles
@@ -27,6 +28,11 @@ Eléments à améliorer :
   - Gestion de la connection du même user sur plusieurs sockets.
   - Possibilité de répondre à un message sans avoir à cliquer sur le nom de la personne.
   - Refaire (juste faire) tout l'algorithme du jeu de la partie.
+- Front-End :
+  - Éclater le composant Game en plus de composants et passer la socket en variable global avec Redux
+  - Gérer le déroulement de la partie
+  - Griser les boutons du magasin et de l'inventaire après avoir cliqué dessus pour ne pas cliqué plusieurs fois sur les mêmes cartes
+  - Ajouter une page profil à l'utilisateur
 
 # Comment utiliser ?
 
