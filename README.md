@@ -39,7 +39,9 @@ Eléments à améliorer :
 - Lancer ActiveMQ
 - Lancer Nginx
 - Lancer le Backend en démarrant CardMngMonolithicApplication du dossier asi2-backendmarket-monolithic-student-master
+- Éventuellement ajouter quelques cartes dans le magasin avec Postman (il n'y en pas par défaut)
 - Lancer React (npm run dev) dans le dossier my-app
+- Se connecter au front: http://localhost:8011/
 - Enregistrer ses utilisateurs
 - Lancer le Backend Node en démarrant le fichier server.js dans le dossier tp
 
